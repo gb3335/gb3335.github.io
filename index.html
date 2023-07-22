@@ -20,7 +20,12 @@
 
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
-
+  <style>
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+      background-color: #bd5d38!important;
+    }
+    
+  </style>
 </head>
 
 <body id="page-top">
@@ -55,6 +60,9 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -78,8 +86,11 @@
           <a href="https://g.dev/giriraj">
             <i class="fab fa-google"></i>
           </a>
-          <a href="https://www.youtube.com/channel/UC4QXqyXQ3YQ5zQDZ9Q3Z9jQ">
+          <a href="https://stackoverflow.com/users/9883025">
             <i class="fab fa-stack-overflow"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UC4QXqyXQ3YQ5zQDZ9Q3Z9jQ">
+            <i class="fab fa-youtube"></i>
           </a>
           <a href="http://github.com/gb3335">
             <i class="fab fa-github"></i>
@@ -279,9 +290,10 @@
 
         <ui class="fa-ul mb-0">
           <li>
-            PHP | JavaScript | TypeScript | Node | React | Vue | jQuery | Redux | Rest API | Express | Git | Jira | HTML | CSS
-            AWS Cloud | Lambda | SAM | Cognito | Amplify | Event Bridge | EC2 | S3 | API Gateway | CloudWatch | CloudFront
-            Cloud Formation | Jenkins | Microservices | Serverless Design | MySQL | GraphQL
+            PHP | JavaScript | TypeScript | Node | React | Vue | jQuery | Redux | Rest API | Express | Git | Jira | HTML | CSS | Bootstrap | WordPress |
+            AWS Cloud | Lambda | SAM | Cognito | Amplify | Event Bridge | EC2 | S3 | API Gateway | CloudWatch | CloudFront |
+            Cloud Formation | Jenkins | Microservices | Serverless Design | MySQL | GraphQL | CI/CD | Docker | Kubernetes | Sequelize |
+
           </li>
         </ui>
         <br>
@@ -324,32 +336,145 @@
             <a href="https://www.coursera.org/account/accomplishments/verify/YEYKJXXXGTWU">AWS Fundamentals: Building Serverless Applications</a></li>
           <li>
             <i class="fa-li fa fa-trophy text-warning" ></i>
-            <a href="http://coursera.org/verify/MH2GAHAX9FDB">AWS Fundamentals: Going Cloud-Native</li>
+            <a href="http://coursera.org/verify/MH2GAHAX9FDB">AWS Fundamentals: Going Cloud-Native</a></li>
           <li>
             <i class="fa-li fa fa-trophy text-warning" ></i>
 <!--             1<sup>st</sup> -->
-            <a href="http://coursera.org/verify/N9BF7SWDTA88">Getting Started with Google Kubernetes Engine - Coursera</li>
+            <a href="http://coursera.org/verify/N9BF7SWDTA88">Getting Started with Google Kubernetes Engine - Coursera</a></li>
           <li>
             <i class="fa-li fa fa-trophy text-warning" ></i>
             <!--             1<sup>st</sup> -->
-            <a href="https://drive.google.com/open?id=159puMq6kwviyLVG1wVeqCt8YioiyLSCy">MongoDB Certification - Issuing authorityGUVI Geek Networks, IITM Research Park</li>
+            <a href="https://drive.google.com/open?id=159puMq6kwviyLVG1wVeqCt8YioiyLSCy">MongoDB Certification - Issuing authorityGUVI Geek Networks, IITM Research Park</a></li>
           <li>
             <i class="fa-li fa fa-trophy text-warning" ></i>
             <!--             3<sup>rd</sup> -->
-            <a href="https://drive.google.com/file/d/1JfRbVLr9tefmfopXY9BFOLsQr4UNgwL3/view?usp=sharing">Java certification - IIT Bombay</li>
+            <a href="https://drive.google.com/file/d/1JfRbVLr9tefmfopXY9BFOLsQr4UNgwL3/view?usp=sharing">Java certification - IIT Bombay</a></li>
           <li>
             <i class="fa-li fa fa-trophy text-warning" ></i>
             <!--             3<sup>rd</sup> -->
-            <a href="https://drive.google.com/file/d/1BwfMEiQ_kbkUid_gdDKGT6OIizy5HhyX/view?usp=sharing">Python certification - IIT Bombay</li>
+            <a href="https://drive.google.com/file/d/1BwfMEiQ_kbkUid_gdDKGT6OIizy5HhyX/view?usp=sharing">Python certification - IIT Bombay</a></li>
           <li>
             <i class="fa-li fa fa-trophy text-warning" ></i>
 <!--             1<sup>st</sup> -->
-            <a href="https://coursera.org/share/49a02734b41e988f541dc1f8a5219e25">Machine Learning for Business Professionals - Google Cloud</li>
+            <a href="https://coursera.org/share/49a02734b41e988f541dc1f8a5219e25">Machine Learning for Business Professionals - Google Cloud</a></li>
           <li>
             <i class="fa-li fa fa-trophy text-warning" ></i>
-<!--             2<sup>nd</sup> -->
-            <a href="https://learndigital.withgoogle.com/DIGITALUNLOCKED/validate-certificate-code">The Fundamentals of Digital Marketing - Google - Credential ID: H9S DHS NBW</li>
+            <a href="https://learndigital.withgoogle.com/DIGITALUNLOCKED/validate-certificate-code" >The Fundamentals of Digital Marketing - Google - Credential ID: H9S DHS NBW</a></li>
         </ul>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="projects">
+      <div class="w-100">
+        <h2 class="mb-5">Projects</h2>
+        <p>Here are some of my projects that I have worked on.</p>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="pills-websites-tab" data-toggle="pill" href="#pills-websites" role="tab" aria-controls="pills-websites" aria-selected="true">WordPress Websites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-react-tab" data-toggle="pill" href="#pills-react" role="tab" aria-controls="pills-react" aria-selected="false">React Apps</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-websites" role="tabpanel" aria-labelledby="pills-websites-tab">
+            <div class="card-columns">
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/vpn.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">VPN Regency</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">Jun 2023</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/sofaio.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 src="https://sofaio.in" class="card-title">SOFAIO (OPC) Private Limited</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">SEP 2018</small></p>
+                </div>
+              </div>
+              <!-- <div class="card p-3">
+                <blockquote class="blockquote mb-0 card-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer class="blockquote-footer">
+                    <small class="text-muted">
+                      Someone famous in <cite title="Source Title">Source Title</cite>
+                    </small>
+                  </footer>
+                </blockquote>
+              </div> -->
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/salya.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Salya Construction</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">APR 2023</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/prime.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Prime Architecture College</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">FEB 2023</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/andavarcoe.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Andavar College of Education</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">FEB 2023</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/milkman.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">A Milk Man</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">DEC 2022</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/andavarcon.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Andavar College of Nursing</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">MAR 2023</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/cynergysports.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Cynergy Sports</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">May 2023</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/img/projects/heb.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">HEB</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">Jun 2019</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-react" role="tabpanel" aria-labelledby="pills-react-tab">
+            <div>Still WIP, will add project soon</div>
+          </div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div>Still WIP, will add project soon</div>
+          </div>
+        </div>
       </div>
     </section>
 
