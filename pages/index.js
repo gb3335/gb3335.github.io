@@ -22,7 +22,7 @@ const Index = () => {
       {/* /SERVICE */}
       <div className="tokyo_tm_portfolio_titles" />
       {/* PORTFOLIO */}
-      <Portfolio />
+      {/* <Portfolio /> */}
       {/* /PORTFOLIO */}
       {/* NEWS */}
       {/* <News /> */}
