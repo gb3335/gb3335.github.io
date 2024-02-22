@@ -1,0 +1,203 @@
+{
+  "logo_title": "RESUME",
+  "tagline": "🚀 Passionate Software Engineer | Remote Work Advocate | Tech Enthusiast",
+  "job_title": "Full Stack Developer",
+  "first_name": "Giriraj",
+  "last_name": "Parihar",
+  "email": "girirajparihaar@gmail.com",
+  "mobile_no": "+91 7671979771",
+  "address": "BIKANER · RJ · 334001 · INDIA",
+  "dob": "11-10-1997",
+  "age": "26",
+  "nationality": "INDIA",
+  "languages": "English, Hindi",
+  "study": "Vellore Institute of Technology",
+  "degree": "Master of Computer Application",
+  "job_type": "Full Time",
+  "availability": "Available",
+  "hobbies": "Travelling, Photography, Cooking",
+  "experience": [
+    {
+      "id": 1,
+      "date": "SEP 2020 - Present",
+      "designation": "Sr. Programmer Analyst (Full-Time)",
+      "company": "Osmosis Learn, Singapore"
+    },
+    {
+      "id": 2,
+      "date": "MAY 2020 - SEP 2020",
+      "designation": "Web Developer (Intern)",
+      "company": "50Hands, Canada"
+    },
+    {
+      "id": 3,
+      "date": "OCT 2016 - JUN 2019",
+      "designation": "Product Developer (Part-Time)",
+      "company": "HEB, India"
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "date": "2019 - 2021",
+      "degree": "Master of Computer Application",
+      "institute": "Vellore Institute of Technology"
+    },
+    {
+      "id": 2,
+      "date": "2016 - 2019",
+      "degree": "Bachelor of Computer Application",
+      "institute": "S.S. Jain Subodh P.G. College"
+    }
+  ],
+  "skills": {
+    "programming": [
+      {
+        "id": 9,
+        "name": "AWS",
+        "value": 85
+      },
+      {
+        "id": 2,
+        "name": "SQL",
+        "value": 80
+      },
+      {
+        "id": 11,
+        "name": "TypeScript",
+        "value": 80
+      },
+      {
+        "id": 6,
+        "name": "PHP",
+        "value": 90
+      },
+      {
+        "id": 7,
+        "name": ".NET",
+        "value": 60
+      },
+      {
+        "id": 10,
+        "name": "Python",
+        "value": 70
+      },
+      {
+        "id": 12,
+        "name": "HTML | CSS | JS | jQuery",
+        "value": 90
+      }
+    ],
+    "tools": [
+      {
+        "id": 1,
+        "name": "Git",
+        "value": 90
+      },
+      {
+        "id": 2,
+        "name": "Docker",
+        "value": 80
+      },
+      {
+        "id": 3,
+        "name": "Jenkins",
+        "value": 70
+      },
+      {
+        "id": 4,
+        "name": "Jira",
+        "value": 80
+      },
+      {
+        "id": 5,
+        "name": "AWS SAM",
+        "value": 80
+      },
+      {
+        "id": 6,
+        "name": "VS Code",
+        "value": 90
+      },
+      {
+        "id": 7,
+        "name": "Figma",
+        "value": 70
+      },
+      {
+        "id": 8,
+        "name": "AWS Amplify",
+        "value": 90
+      },
+      {
+        "id": 9,
+        "name": "AWS CloudFormation",
+        "value": 80
+      },
+      {
+        "id": 10,
+        "name": "Tailwind CSS",
+        "value": 90
+      },
+      {
+        "id": 11,
+        "name": "Bootstrap",
+        "value": 90
+      }
+    ],
+    "knowledge": [
+      { "id": 1, "text": "Next.js | React | Angular" },
+      { "id": 2, "text": "PHP Core | Laravel | CodeIgniter" },
+      { "id": 3, "text": "REST API | AWS Lambda | Node.js" },
+      { "id": 4, "text": "TypeScript | ZOD" },
+      { "id": 5, "text": "Microservices | Serverless | Docker" },
+      { "id": 6, "text": "CI/CD | Jenkins | Amplify" },
+      { "id": 7, "text": "AWS | Amplify | SES | EventBridge" },
+      { "id": 8, "text": "EC2 | IAM | Cloudwatch | S3 | CloudFront" },
+      { "id": 9, "text": "Tailwind CSS | Bootstrap | Figma" },
+      { "id": 11, "text": "MySQL | AWS RDS Aurora" },
+      { "id": 12, "text": "Git | GitLab | GitHub" },
+      { "id": 13, "text": "npm | yarn | pnpm" },
+      { "id": 14, "text": "Jmeter | Sonarqube | Synk" }
+    ],
+    "interests": [
+      { "id": 6, "text": "Coding" },
+      { "id": 1, "text": "Travelling" },
+      { "id": 2, "text": "Photography" },
+      { "id": 3, "text": "Cooking" },
+      { "id": 4, "text": "Reading" },
+      { "id": 5, "text": "Music" },
+      { "id": 7, "text": "Swimming" }
+    ]
+  },
+  "recommendation": [
+    {
+      "id": 1,
+      "text": "I had the pleasure of working with Giriraj on multiple different features, and I can confidently say that he is a great person to work with. Giriraj is a highly skilled web developer, with a particular expertise in Nodejs. He is consistently able to deliver high-quality work in a timely manner, and his attention to detail is second to none. In addition to his technical skills, Giriraj is also an excellent team player. He is always willing to lend a hand and go above and beyond to ensure that projects are completed successfully. Overall, I highly recommend Giriraj for any web projects, and I believe he would be an asset to any team.",
+      "authorImage": "assets/img/testimonials/1.jpg",
+      "authorName": "Zubair Ahmed Syed",
+      "authorDesignation": "Full Stack Engineer at Stealth Start-up"
+    },
+    {
+      "id": 3,
+      "text": "I know Giriraj from last 4 years now and I have seen his tremendous growth. We have worked together on a few projects and I have observed how a big perfectionist he is and always makes sure to give his 100 percent in all the project activities. From lying down the idea on paper to push the code on to the host, he does it all with the perfection. He proved himself as an asset for our projects.His hunger to learn is the quality which differentiaties him from the crowd. I am sure wherever he will go, he will add stars to the company.",
+      "authorImage": "assets/img/testimonials/3.jpg",
+      "authorName": "Nikita Arora",
+      "authorDesignation": "Software Engineer at Gartner"
+    },
+    {
+      "id": 2,
+      "text": "I have learned so much from working with Giriraj during my college time, he helped me to become a better professional. I had the opportunity of working with Giriraj on several projects at VIT Chennai. I was always impressed by his skills to effortlessly deal with even the most difficult people. While other consulting professionals need years to develop that ability, to him it was perfectly natural from the beginning. Giriraj would be a great fit for any IT company.",
+      "authorImage": "assets/img/testimonials/2.jpg",
+      "authorName": "Khushboo Vyas",
+      "authorDesignation": "Software Engineer at Chubb"
+    }
+  ],
+  "resume": "assets/resume.pdf",
+  "about": "I am looking for a Software Engineer position where I can utilize my knowledge and skills to make contribution to the success of company. I have over 3 years of experience in the industry and skills expertise in requirements gathering, research, problem-solving, project management and development including technical skills in cloud computing & web development. I possess strong abilities in collaborating with teams and demonstrated a steadfast dedication towards attaining exceptional outcomes in every task I undertake.",
+  "profile_image": "assets/img/portfolio/1.png",
+  "linkedin": "https://www.linkedin.com/in/giriraj-parihar/",
+  "github": "http://github.com/gb3335",
+  "gdev": "https://g.dev/giriraj",
+  "instagram": "https://www.instagram.com/life_of_ambivert/"
+}
