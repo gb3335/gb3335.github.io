@@ -146,28 +146,88 @@
       }
     ],
     "knowledge": [
-      { "id": 1, "text": "Next.js | React | Angular" },
-      { "id": 2, "text": "PHP Core | Laravel | CodeIgniter" },
-      { "id": 3, "text": "REST API | AWS Lambda | Node.js" },
-      { "id": 4, "text": "TypeScript | ZOD" },
-      { "id": 5, "text": "Microservices | Serverless | Docker" },
-      { "id": 6, "text": "CI/CD | Jenkins | Amplify" },
-      { "id": 7, "text": "AWS | Amplify | SES | EventBridge" },
-      { "id": 8, "text": "EC2 | IAM | Cloudwatch | S3 | CloudFront" },
-      { "id": 9, "text": "Tailwind CSS | Bootstrap | Figma" },
-      { "id": 11, "text": "MySQL | AWS RDS Aurora" },
-      { "id": 12, "text": "Git | GitLab | GitHub" },
-      { "id": 13, "text": "npm | yarn | pnpm" },
-      { "id": 14, "text": "Jmeter | Sonarqube | Synk" }
+      {
+        "id": 1,
+        "text": "Next.js | React | Angular"
+      },
+      {
+        "id": 2,
+        "text": "PHP Core | Laravel | CodeIgniter"
+      },
+      {
+        "id": 3,
+        "text": "REST API | AWS Lambda | Node.js"
+      },
+      {
+        "id": 4,
+        "text": "TypeScript | ZOD"
+      },
+      {
+        "id": 5,
+        "text": "Microservices | Serverless | Docker"
+      },
+      {
+        "id": 6,
+        "text": "CI/CD | Jenkins | Amplify"
+      },
+      {
+        "id": 7,
+        "text": "AWS | Amplify | SES | EventBridge"
+      },
+      {
+        "id": 8,
+        "text": "EC2 | IAM | Cloudwatch | S3 | CloudFront"
+      },
+      {
+        "id": 9,
+        "text": "Tailwind CSS | Bootstrap | Figma"
+      },
+      {
+        "id": 11,
+        "text": "MySQL | AWS RDS Aurora"
+      },
+      {
+        "id": 12,
+        "text": "Git | GitLab | GitHub"
+      },
+      {
+        "id": 13,
+        "text": "npm | yarn | pnpm"
+      },
+      {
+        "id": 14,
+        "text": "Jmeter | Sonarqube | Synk"
+      }
     ],
     "interests": [
-      { "id": 6, "text": "Coding" },
-      { "id": 1, "text": "Travelling" },
-      { "id": 2, "text": "Photography" },
-      { "id": 3, "text": "Cooking" },
-      { "id": 4, "text": "Reading" },
-      { "id": 5, "text": "Music" },
-      { "id": 7, "text": "Swimming" }
+      {
+        "id": 6,
+        "text": "Coding"
+      },
+      {
+        "id": 1,
+        "text": "Travelling"
+      },
+      {
+        "id": 2,
+        "text": "Photography"
+      },
+      {
+        "id": 3,
+        "text": "Cooking"
+      },
+      {
+        "id": 4,
+        "text": "Reading"
+      },
+      {
+        "id": 5,
+        "text": "Music"
+      },
+      {
+        "id": 7,
+        "text": "Swimming"
+      }
     ]
   },
   "recommendation": [
@@ -196,8 +256,315 @@
   "resume": "assets/resume.pdf",
   "about": "I am looking for a Software Engineer position where I can utilize my knowledge and skills to make contribution to the success of company. I have over 3 years of experience in the industry and skills expertise in requirements gathering, research, problem-solving, project management and development including technical skills in cloud computing & web development. I possess strong abilities in collaborating with teams and demonstrated a steadfast dedication towards attaining exceptional outcomes in every task I undertake.",
   "profile_image": "assets/img/portfolio/1.png",
-  "linkedin": "https://www.linkedin.com/in/giriraj-parihar/",
-  "github": "http://github.com/gb3335",
-  "gdev": "https://g.dev/giriraj",
-  "instagram": "https://www.instagram.com/life_of_ambivert/"
+  "social": {
+    "resume": "https://drive.google.com/file/d/1iqXBAwvYgXjNvFtHuYmBpZTozOpo67cu/view?usp=sharing",
+    "linkedin": "https://www.linkedin.com/in/giriraj-parihar/",
+    "github": "http://github.com/gb3335",
+    "gdev": "https://g.dev/giriraj",
+    "instagram": "https://www.instagram.com/life_of_ambivert/"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "thumbnail": "assets/img/portfolio/next.jpg",
+      "title": "E-Resume",
+      "text": [
+        "Created using Next.js and deployed in vercel",
+        "Based on json schema, easy to modify & reuse"
+      ],
+      "client": "",
+      "date": "",
+      "category": "next",
+      "link": "https://github.com/gb3335/gb3335.github.io.git",
+      "tech_stack": [
+        {
+          "id": 1,
+          "key": "next",
+          "name": "Next.js"
+        },
+        {
+          "id": 2,
+          "key": "react",
+          "name": "React"
+        },
+        {
+          "id": 3,
+          "key": "tailwind",
+          "name": "Tailwind CSS"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "thumbnail": "assets/img/portfolio/react.webp",
+      "title": "QUIZ MODULE",
+      "text": [
+        "Used technology stack like react js & AWS lambda function and used Sequelize as ORM for project.",
+        "Done Architecture, wireframe creation, user stories, backend integration and deploy to cloud."
+      ],
+      "client": "Osmosis Learn",
+      "date": "",
+      "category": "react",
+      "link": "https://github.com/gb3335/osmosis.git",
+      "tech_stack": [
+        {
+          "id": 1,
+          "key": "react",
+          "name": "React.js"
+        },
+        {
+          "id": 2,
+          "key": "restapi",
+          "name": "REST API"
+        },
+        {
+          "id": 3,
+          "key": "bootstrap",
+          "name": "Bootstrap"
+        },
+        {
+          "id": 4,
+          "key": "awslambda",
+          "name": "AWS Lambda"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "thumbnail": "assets/img/portfolio/react.webp",
+      "title": "LIVE CHAT",
+      "text": [
+        "Done Lambda, RDS, Node, socket.io & React technology stack.",
+        "Done Architecture, wireframe creation, user stories, backend integration and deploy using EC2."
+      ],
+      "client": "Osmosis Learn",
+      "date": "",
+      "category": "react",
+      "link": "https://github.com/gb3335/osmosis.git",
+      "tech_stack": [
+        {
+          "id": 1,
+          "key": "react",
+          "name": "React.js"
+        },
+        {
+          "id": 2,
+          "key": "dynamodb",
+          "name": "DynamoDB"
+        },
+        {
+          "id": 3,
+          "key": "soketio",
+          "name": "Socket.io"
+        },
+        {
+          "id": 4,
+          "key": "awslambda",
+          "name": "AWS Lambda"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "thumbnail": "assets/img/portfolio/react.webp",
+      "title": "AR MENU FOR RESTAURANT & CAFE",
+      "text": [
+        "Can see restaurant & Cafe Menu in 3D & AR Used React js, material UI, google model viewer & Node js as technology stack"
+      ],
+      "client": "",
+      "date": "",
+      "category": "react",
+      "link": "https://github.com/gb3335/ar-menu.git",
+      "tech_stack": [
+        {
+          "id": 1,
+          "key": "react",
+          "name": "React.js"
+        },
+        {
+          "id": 2,
+          "key": "restapi",
+          "name": "REST API"
+        },
+        {
+          "id": 3,
+          "key": "auth",
+          "name": "Auth.js"
+        },
+        {
+          "id": 4,
+          "key": "firebase",
+          "name": "Firebase"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "thumbnail": "assets/img/portfolio/php.webp",
+      "title": "V Card",
+      "text": [
+        "Online business card with QR code, used PHP Laravel",
+        "Included features like contact form, social media links, and download contact details as vCard",
+        "Admin panel to manage the content",
+        "Client panel to view the analytics"
+      ],
+      "client": "",
+      "date": "",
+      "category": "php",
+      "link": "https://github.com/gb3335/vcard.git",
+      "tech_stack": [
+        {
+          "id": 1,
+          "key": "php",
+          "name": "PHP"
+        },
+        {
+          "id": 2,
+          "key": "laravel",
+          "name": "Laravel"
+        },
+        {
+          "id": 3,
+          "key": "mysql",
+          "name": "MySQL"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "thumbnail": "assets/img/portfolio/php.webp",
+      "title": "AUTOMATIC BULK EMAIL SERVICES",
+      "text": [
+        "To send renewal and marketing emails in bulk automatically",
+        "Used PHP, MySQL, and Cron function of apache"
+      ],
+      "client": "HEB",
+      "date": "",
+      "category": "php",
+      "link": "https://github.com/gb3335/Bulk-email-php-application.git",
+      "tech_stack": [
+        {
+          "id": 1,
+          "key": "php",
+          "name": "PHP Core"
+        },
+        {
+          "id": 2,
+          "key": "cron",
+          "name": "Cron Job"
+        },
+        {
+          "id": 4,
+          "key": "phpmailer",
+          "name": "PHP Mailer"
+        },
+        {
+          "id": 3,
+          "key": "mysql",
+          "name": "MySQL"
+        }
+      ]
+    }
+  ],
+  "freelance_projects": [
+    {
+      "id": 1,
+      "thumbnail": "assets/img/portfolio/freelance/jtekt.png",
+      "title": "JTEKT",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://jtekt.ae"
+    },
+    {
+      "id": 2,
+      "thumbnail": "assets/img/portfolio/freelance/prime.png",
+      "title": "PRIME ARCHITECTURE COLLEGE",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://primearchitecture.in"
+    },
+    {
+      "id": 3,
+      "thumbnail": "assets/img/portfolio/freelance/andavarcon.png",
+      "title": "ANDAVAR COLLEGE OF NURSING",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://andavarcollegeofnursing.in/"
+    },
+    {
+      "id": 4,
+      "thumbnail": "assets/img/portfolio/freelance/vpn.png",
+      "title": "VPN REGENCY",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://vpnregency.com/"
+    },
+    {
+      "id": 5,
+      "thumbnail": "assets/img/portfolio/freelance/andavarcoe.png",
+      "title": "ANDAVAR COLLEGE OF EDUCATION",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://andavaredu.in/"
+    },
+    {
+      "id": 6,
+      "thumbnail": "assets/img/portfolio/freelance/cynergysports.png",
+      "title": "CYNERGY SPORTS",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://cynergysports.com/"
+    },
+    {
+      "id": 7,
+      "thumbnail": "assets/img/portfolio/freelance/milkman.png",
+      "title": "A MILK MAN",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://www.amilkman.com/"
+    },
+    {
+      "id": 8,
+      "thumbnail": "assets/img/portfolio/freelance/heb.png",
+      "title": "HEB",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://heb-nic.in/"
+    },
+    {
+      "id": 9,
+      "thumbnail": "assets/img/portfolio/freelance/salya.png",
+      "title": "SALYA CONSTRUCTION",
+      "client": "Other",
+      "category": "freelance",
+      "link": "https://salya.in/"
+    }
+  ],
+  "project_tech_list": [
+    {
+      "id": 1,
+      "key": "next",
+      "name": "Next.js"
+    },
+    {
+      "id": 2,
+      "key": "react",
+      "name": "React"
+    },
+    {
+      "id": 3,
+      "key": "node",
+      "name": "Node.js"
+    },
+    {
+      "id": 4,
+      "key": "php",
+      "name": "PHP"
+    },
+    {
+      "id": 5,
+      "key": "freelance",
+      "name": "Freelance Projects"
+    }
+  ]
 }

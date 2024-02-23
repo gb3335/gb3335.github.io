@@ -3,23 +3,28 @@ import Data from "./data.json";
 const socialIcon = [
   {
     id: 1,
-    iconName: "icon-file-text2",
-    link: Data.resume,
+    iconName: "fa-solid fa-file-alt",
+    link: Data.social.resume,
   },
   {
     id: 2,
-    iconName: "icon-instagram-squared",
-    link: Data.gdev,
+    iconName: "fa-brands fa-google",
+    link: Data.social.gdev,
   },
   {
     id: 3,
-    iconName: "icon-github-squared",
-    link: Data.github,
+    iconName: "fa-brands fa-github",
+    link: Data.social.github,
   },
   {
     id: 4,
-    iconName: "icon-linkedin-squared",
-    link: Data.linkedin,
+    iconName: "fa-brands fa-linkedin-in",
+    link: Data.social.linkedin,
+  },
+  {
+    id: 5,
+    iconName: "fa-brands fa-instagram",
+    link: Data.social.instagram,
   },
 ];
 const Home = () => {
@@ -49,7 +54,7 @@ const Home = () => {
               <div className="social float-left w-full">
                 <ul className="m-0 list-none">
                   {socialIcon.map((item) => (
-                    <li className="mr-[8px] inline-block" key={item.id}>
+                    <li className="inline-block mr-[20px]" key={item.id}>
                       <a
                         className="text-[20px] text-black transition-all duration-300 hover:text-black"
                         href={item.link}

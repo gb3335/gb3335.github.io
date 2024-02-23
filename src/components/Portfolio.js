@@ -4,80 +4,10 @@ import { TokyoContext } from "../Context";
 import { tokyo } from "../utils";
 import SectionContainer from "./SectionContainer";
 import SectionTitle from "./SectionTitle";
-const detailData = [
-  {
-    id: 1,
-    thumbnail: "assets/img/portfolio/7.jpg",
-    title: "Selena Gomez",
-    text: [
-      "We live in a world where we need to move quickly and iterate on our ideas as flexibly as possible. Building mockups strikes the ideal balance between true-life representation of the end product and ease of modification.",
-      "Mockups are useful both for the creative phase of the project - for instance when you're trying to figure out your user flows or the proper visual hierarchy - and the production phase when they will represent the target product. Making mockups a part of your creative and development process allows you to quickly and easily ideate.",
-    ],
-    client: "Alvaro Morata",
-    date: "October 22, 2022",
-    category: "Detail",
-    share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
-    ],
-    bigImage: "assets/img/portfolio/1.jpg",
-    images: ["assets/img/portfolio/2.jpg", "assets/img/portfolio/3.jpg"],
-  },
-  {
-    id: 2,
-    thumbnail: "assets/img/portfolio/8.jpg",
-    title: "Ave Simone",
-    text: [
-      "We live in a world where we need to move quickly and iterate on our ideas as flexibly as possible. Building mockups strikes the ideal balance between true-life representation of the end product and ease of modification.",
-      "Mockups are useful both for the creative phase of the project - for instance when you're trying to figure out your user flows or the proper visual hierarchy - and the production phase when they will represent the target product. Making mockups a part of your creative and development process allows you to quickly and easily ideate.",
-    ],
-    client: "Alvaro Morata",
-    date: "October 22, 2022",
-    category: "Detail",
-    share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
-    ],
-    bigImage: "assets/img/portfolio/1.png",
-    images: ["assets/img/portfolio/1.png", "assets/img/portfolio/1.png"],
-  },
-];
+import Data from "./data";
+const detailData = Data.projects;
+const filterData = Data.project_tech_list;
+const imagepData = Data.freelance_projects;
 const Portfolio = () => {
   const isotope = useRef();
   const [filterKey, setFilterKey] = useState("*");
@@ -113,8 +43,8 @@ const Portfolio = () => {
           <div className="tokyo_tm_title float-left clear-both mb-[62px] h-auto w-full">
             <div className="title_flex clear-both flex h-auto w-full items-end justify-between">
               <SectionTitle
-                pageName={"Portfolio"}
-                title={"Creative Portfolio"}
+                pageName={"Projects"}
+                title={"Completed Projects"}
               />
               <div className="portfolio_filter">
                 <ul className="list-none">
@@ -127,51 +57,19 @@ const Portfolio = () => {
                       All
                     </a>
                   </li>
-                  <li className="mr-[25px] inline-block">
-                    <a
-                      className="font-montserrat inline-block font-medium text-[#767676] transition-all duration-300 hover:text-black"
-                      href="#"
-                      onClick={handleFilterKeyChange("vimeo")}
-                    >
-                      Vimeo
-                    </a>
-                  </li>
-                  <li className="mr-[25px] inline-block">
-                    <a
-                      className="font-montserrat inline-block font-medium text-[#767676] transition-all duration-300 hover:text-black"
-                      href="#"
-                      onClick={handleFilterKeyChange("youtube")}
-                    >
-                      Youtube
-                    </a>
-                  </li>
-                  <li className="mr-[25px] inline-block">
-                    <a
-                      className="font-montserrat inline-block font-medium text-[#767676] transition-all duration-300 hover:text-black"
-                      href="#"
-                      onClick={handleFilterKeyChange("soundcloud")}
-                    >
-                      Soundcloud
-                    </a>
-                  </li>
-                  <li className="mr-[25px] inline-block">
-                    <a
-                      className="font-montserrat inline-block font-medium text-[#767676] transition-all duration-300 hover:text-black"
-                      href="#"
-                      onClick={handleFilterKeyChange("image")}
-                    >
-                      Image
-                    </a>
-                  </li>
-                  <li className="inline-block">
-                    <a
-                      className="font-montserrat inline-block font-medium text-[#767676] transition-all duration-300 hover:text-black"
-                      href="#"
-                      onClick={handleFilterKeyChange("detail")}
-                    >
-                      Detail
-                    </a>
-                  </li>
+                  {
+                    filterData.map((item, index) => (
+                      <li key={index} className="mr-[25px] inline-block">
+                        <a
+                          className="font-montserrat inline-block font-medium text-[#767676] transition-all duration-300 hover:text-black"
+                          href="#"
+                          onClick={handleFilterKeyChange(item.key)}
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
             </div>
@@ -250,83 +148,64 @@ const Portfolio = () => {
                   </div>
                 </div>
               </li> */}
-              {/* <li className="image item__ float-left mb-[40px] w-1/3 pl-[40px]">
-                <div className="inner relative float-left clear-both h-auto w-full overflow-hidden">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Gloria Jenkins"
-                    data-category="Image"
-                  >
-                    <a className="zoom" href="assets/img/portfolio/3.jpg">
-                      <img
-                        className="min-w-full opacity-0"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
+
+              {
+                detailData.map((item, index) => (
+                  <li key={index} className={`${item.category} item__ float-left mb-[40px] w-1/3 pl-[40px]`}>
+                    <div className="inner relative float-left clear-both h-auto w-full overflow-hidden">
                       <div
-                        className="abs_image absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300"
-                        data-img-url="assets/img/portfolio/3.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li> */}
-              <li className="detail item__ float-left mb-[40px] w-1/3 pl-[40px]">
-                <div className="inner relative float-left clear-both h-auto w-full overflow-hidden">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Selena Gomez"
-                    data-category="Detail"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[0]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="min-w-full opacity-0"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
+                        className="entry tokyo_tm_portfolio_animation_wrap"
+                        data-title={item.title}
+                        data-category={item.category}
+                      >
+                        <a
+                          className="popup_info"
+                          href="#"
+                          onClick={() => {
+                            setPortfolioDetailsModal(item);
+                            modalToggle(true);
+                          }}
+                        >
+                          <img
+                            className="min-w-full opacity-0"
+                            src="assets/img/portfolio/1.png"
+                            alt="image"
+                          />
+                          <div
+                            className="abs_image absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300"
+                            data-img-url={item.thumbnail}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                ))
+              }
+              {
+                imagepData.map((item, index) => (
+                  <li key={index} className={`${item.category} item__ float-left mb-[40px] w-1/3 pl-[40px]`}>
+                    <div className="inner relative float-left clear-both h-auto w-full overflow-hidden">
                       <div
-                        className="abs_image absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300"
-                        data-img-url="assets/img/portfolio/7.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="detail item__ float-left mb-[40px] w-1/3 pl-[40px]">
-                <div className="inner relative float-left clear-both h-auto w-full overflow-hidden">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Ave Simone"
-                    data-category="Detail"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[1]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="min-w-full opacity-0"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300"
-                        data-img-url="assets/img/portfolio/8.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
+                        className="entry tokyo_tm_portfolio_animation_wrap"
+                        data-title={item.title}
+                        data-category={item.category}
+                      >
+                        <a className="" href={item.link}>
+                          <img
+                            className="min-w-full opacity-0"
+                            src={item.thumbnail}
+                            alt="image"
+                          />
+                          <div
+                            className="abs_image absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300"
+                            data-img-url={item.thumbnail}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>

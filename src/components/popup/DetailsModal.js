@@ -19,50 +19,69 @@ const DetailsModal = () => {
         </div>
         <div className="portfolio_main_title">
           <h3>{portfolioDetailsModal.title}</h3>
-          <span>{portfolioDetailsModal.category}</span>
+          <span>{portfolioDetailsModal.client ?? ''}</span>
           <div />
         </div>
         <div className="main_details w-full h-auto clear-both flex mb-[90px]">
           <div className="textbox w-[70%] pr-[40px]">
-            {portfolioDetailsModal.text.map((text, i) => (
-              <p
-                className={
-                  portfolioDetailsModal.text.length - 1 == i ? "" : "mb-[20px]"
-                }
-                key={i}
-              >
-                {text}
-              </p>
-            ))}
+            <ul className="m-0 list-none">
+              {portfolioDetailsModal.text.map((text, i) => (
+                <li
+                  className={
+                    portfolioDetailsModal.text.length - 1 == i ? "relative pl-[25px]" : "relative pl-[25px] mb-[20px]"
+                  }
+                  key={i}
+                >
+                  <span>
+                    <img
+                      className="svg absolute left-0 top-1/2 h-[10px] w-[10px] translate-y-[-50%] text-black"
+                      src="assets/img/svg/rightarrow.svg"
+                      alt="image"
+                    />
+                    {text}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="detailbox w-[30%] pl-[40px]">
             <ul className="list-none">
-              <li className="mb-[8px] w-full float-left">
+              <li className={`mb-[8px] w-full float-left ${portfolioDetailsModal.link ? '' : 'hidden'}`}>
                 <span className="first font-bold block text-black mb-[3px]">
-                  Client
+                  Link
+                </span>
+                <a className="text-black text-[18px]" href={portfolioDetailsModal.link}>
+                  <i className="fa-brands fa-github" />
+                </a>
+              </li>
+              <li className={`mb-[8px] w-full float-left ${portfolioDetailsModal.client ? '' : 'hidden'}`}>
+                <span className="first font-bold block text-black mb-[3px]">
+                  For
                 </span>
                 <span>{portfolioDetailsModal.client}</span>
               </li>
               <li className="mb-[8px] w-full float-left">
                 <span className="first font-bold block text-black mb-[3px]">
-                  Category
+                  Tech Stack
                 </span>
-                <span>
-                  <a
-                    className="text-[#767676] transition-all duration-300 hover:text-black"
-                    href="#"
-                  >
-                    {portfolioDetailsModal.category}
-                  </a>
-                </span>
+                {portfolioDetailsModal.tech_stack.map((e) => (
+                  <li key={e.id} className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                    <a
+                      className={`text-[#767676] transition-all duration-300 hover:text-black`}
+                      href={`#${e.key}`}
+                    >
+                      {e.name}
+                    </a>
+                  </li>
+                ))}
               </li>
               <li className="mb-[8px] w-full float-left">
-                <span className="first font-bold block text-black mb-[3px]">
+                <span className={`first font-bold block text-black mb-[3px] ${portfolioDetailsModal.date ? '' : 'hidden'}`}>
                   Date
                 </span>
                 <span>{portfolioDetailsModal.date}</span>
               </li>
-              <li className="w-full float-left">
+              {/* <li className="w-full float-left">
                 <span className="first font-bold block text-black mb-[3px]">
                   Share
                 </span>
@@ -75,11 +94,11 @@ const DetailsModal = () => {
                     </li>
                   ))}
                 </ul>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
-        <div className="additional_images w-full h-auto clear-both float-left">
+        {/* <div className="additional_images w-full h-auto clear-both float-left">
           <ul className="ml-[-30px] list-none">
             <li className="mb-[30px] float-left w-1/2 pl-[30px]">
               <div className="list_inner w-full h-auto clear-both float-left relative">
@@ -120,7 +139,7 @@ const DetailsModal = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     </ModalContainer>
   );
