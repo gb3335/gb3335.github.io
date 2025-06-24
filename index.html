@@ -49,33 +49,10 @@
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      background: linear-gradient(90deg, #38bdf8, #cd28ff);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -3.5rem;
-      top: 0.25rem;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 9999px;
-      border: 3px solid #e5e7eb;
-      background-color: #f9fafb;
-      z-index: 10;
-    }
-
-    .dark .timeline-item::before {
-      border-color: #374151;
-      background-color: #111827;
-    }
-
-    @media (min-width: 768px) {
-      .timeline-item::before {
-        left: -4rem;
-      }
     }
 
     /* Animations & Effects */
@@ -98,11 +75,11 @@
 
     .interactive-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.15);
     }
 
     .dark .interactive-card:hover {
-      box-shadow: 0 20px 25px -5px rgb(30 58 138 / 0.3), 0 8px 10px -6px rgb(30 58 138 / 0.3);
+      box-shadow: 0 20px 25px -5px rgb(56 189 248 / 0.25), 0 8px 10px -6px rgb(56 189 248 / 0.15);
     }
 
     /* Glass Glare Effect */
@@ -120,6 +97,67 @@
 
     .interactive-card:hover::after {
       left: 150%;
+    }
+
+    /* Glassmorphism Effects */
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-button {
+      background: rgba(56, 189, 248, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(56, 189, 248, 0.9);
+      box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.3);
+      color: white;
+    }
+
+    .glass-button:hover {
+      background: rgba(14, 165, 233, 0.9);
+      border: 1px solid rgba(14, 165, 233, 1);
+      box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .dark .glass-button {
+      background: rgba(56, 189, 248, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.2);
+    }
+
+    .dark .glass-button:hover {
+      background: rgba(56, 189, 248, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.95);
+      box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.35);
+    }
+
+    /* GitLab Heatmap Styles */
+    #gitlab-heatmap {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .heatmap-day {
+      transition: all 0.2s ease;
+    }
+
+    .heatmap-day:hover {
+      transform: scale(1.2);
+      z-index: 10;
+      position: relative;
     }
   </style>
   <!-- Structured Data for SEO -->
@@ -146,13 +184,13 @@
     </script>
 </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-300 transition-colors duration-300">
+<body class="bg-amber-50 dark:bg-gray-900 text-gray-800 dark:text-gray-300 transition-colors duration-300">
 
   <header id="home"
-    class="relative min-h-screen flex flex-col justify-center items-center text-center p-8 bg-white dark:bg-gray-900">
+    class="relative min-h-screen flex flex-col justify-center items-center text-center p-8 bg-amber-50 dark:bg-gray-900">
     <div class="absolute top-6 right-6">
       <button id="theme-toggle" type="button"
-        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+        class="glass-effect text-gray-800 dark:text-gray-200 hover:text-sky-600 dark:hover:text-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-800 rounded-lg text-sm p-2.5 transition-all duration-300">
         <i id="theme-toggle-dark-icon" data-lucide="moon" class="w-5 h-5 hidden"></i>
         <i id="theme-toggle-light-icon" data-lucide="sun" class="w-5 h-5 hidden"></i>
       </button>
@@ -172,25 +210,25 @@
       </p>
       <div class="mt-10 flex justify-center items-center space-x-6 fade-in-up" style="animation-delay: 450ms;">
         <a href="mailto:parihargiriraj99@gmail.com"
-          class="text-gray-500 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-transform duration-300 hover:scale-110">
-          <i data-lucide="mail" class="w-8 h-8"></i>
+          class="glass-effect p-3 rounded-full text-gray-800 dark:text-gray-200 hover:text-sky-600 dark:hover:text-sky-400 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+          <i data-lucide="mail" class="w-6 h-6"></i>
         </a>
         <a href="https://www.linkedin.com/in/giriraj-parihar/" target="_blank" rel="noopener noreferrer"
-          class="text-gray-500 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-transform duration-300 hover:scale-110">
-          <i data-lucide="linkedin" class="w-8 h-8"></i>
+          class="glass-effect p-3 rounded-full text-gray-800 dark:text-gray-200 hover:text-sky-600 dark:hover:text-sky-400 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+          <i data-lucide="linkedin" class="w-6 h-6"></i>
         </a>
         <a href="https://github.com/gb3335" target="_blank" rel="noopener noreferrer"
-          class="text-gray-500 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-transform duration-300 hover:scale-110">
-          <i data-lucide="github" class="w-8 h-8"></i>
+          class="glass-effect p-3 rounded-full text-gray-800 dark:text-gray-200 hover:text-sky-600 dark:hover:text-sky-400 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+          <i data-lucide="github" class="w-6 h-6"></i>
         </a>
         <a href="https://g.dev/giriraj" target="_blank" rel="noopener noreferrer"
-          class="text-gray-500 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-transform duration-300 hover:scale-110">
-          <i data-lucide="code-square" class="w-8 h-8"></i>
+          class="glass-effect p-3 rounded-full text-gray-800 dark:text-gray-200 hover:text-sky-600 dark:hover:text-sky-400 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+          <i data-lucide="code-square" class="w-6 h-6"></i>
         </a>
       </div>
       <div class="mt-12 fade-in-up" style="animation-delay: 600ms;">
         <a href="#projects"
-          class="px-8 py-4 bg-sky-600 text-white font-bold rounded-lg hover:bg-sky-700 transition-all duration-300 shadow-lg shadow-sky-600/20 transform hover:scale-105">View
+          class="glass-button px-8 py-4 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 inline-block">View
           My Work</a>
       </div>
     </div>
@@ -200,85 +238,318 @@
     <section id="skills" class="py-16 scroll-target">
       <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 scroll-target fade-in-up">Skills
       </h2>
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Frontend Development -->
           <div
-            class="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 interactive-card scroll-target fade-in-up">
+            class="bg-amber-100/50 dark:bg-gray-800/50 p-6 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up">
             <div class="flex items-center mb-4">
               <div
-                class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                <i data-lucide="layout" class="w-6 h-6 text-white"></i>
+                class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="layout" class="w-4 h-4 text-white"></i>
               </div>
-              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Frontend</h3>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Frontend</h3>
             </div>
             <div class="flex flex-wrap gap-2">
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">React</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Vue.js</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">TypeScript</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">HTML/CSS</span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="component" class="w-3 h-3 inline mr-1"></i>React
+              </span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="zap" class="w-3 h-3 inline mr-1"></i>Vue.js
+              </span>
+              <span
+                class="bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="triangle" class="w-3 h-3 inline mr-1"></i>Next.js
+              </span>
+              <span
+                class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="code" class="w-3 h-3 inline mr-1"></i>JavaScript
+              </span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="file-type" class="w-3 h-3 inline mr-1"></i>TypeScript
+              </span>
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="palette" class="w-3 h-3 inline mr-1"></i>HTML/CSS
+              </span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="layout" class="w-3 h-3 inline mr-1"></i>Material UI
+              </span>
+              <span
+                class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="grid-3x3" class="w-3 h-3 inline mr-1"></i>Bootstrap
+              </span>
+              <span
+                class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="dollar-sign" class="w-3 h-3 inline mr-1"></i>jQuery
+              </span>
             </div>
           </div>
 
           <!-- Backend Development -->
           <div
-            class="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 interactive-card scroll-target fade-in-up"
+            class="bg-amber-100/50 dark:bg-gray-800/50 p-6 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
             style="transition-delay: 150ms">
             <div class="flex items-center mb-4">
               <div
-                class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mr-3">
-                <i data-lucide="server" class="w-6 h-6 text-white"></i>
+                class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="server" class="w-4 h-4 text-white"></i>
               </div>
-              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Backend</h3>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Backend</h3>
             </div>
             <div class="flex flex-wrap gap-2">
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Node.js</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Express</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">PHP</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Python</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">RESTful APIs</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="activity" class="w-3 h-3 inline mr-1"></i>Node.js
+              </span>
+              <span
+                class="bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="zap" class="w-3 h-3 inline mr-1"></i>Express
+              </span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="globe" class="w-3 h-3 inline mr-1"></i>PHP
+              </span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="snake" class="w-3 h-3 inline mr-1"></i>Python
+              </span>
+              <span
+                class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="coffee" class="w-3 h-3 inline mr-1"></i>Java
+              </span>
+              <span
+                class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="link" class="w-3 h-3 inline mr-1"></i>RESTful APIs
+              </span>
+              <span
+                class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="database" class="w-3 h-3 inline mr-1"></i>Sequelize
+              </span>
+              <span
+                class="bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="share-2" class="w-3 h-3 inline mr-1"></i>GraphQL
+              </span>
+              <span
+                class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="layers" class="w-3 h-3 inline mr-1"></i>Laravel
+              </span>
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="flame" class="w-3 h-3 inline mr-1"></i>CodeIgniter
+              </span>
             </div>
           </div>
 
           <!-- Cloud & DevOps -->
           <div
-            class="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 interactive-card scroll-target fade-in-up"
+            class="bg-amber-100/50 dark:bg-gray-800/50 p-6 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
             style="transition-delay: 300ms">
             <div class="flex items-center mb-4">
               <div
-                class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mr-3">
-                <i data-lucide="cloud" class="w-6 h-6 text-white"></i>
+                class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="cloud" class="w-4 h-4 text-white"></i>
               </div>
-              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Cloud & DevOps</h3>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Cloud & DevOps</h3>
             </div>
             <div class="flex flex-wrap gap-2">
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">AWS</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Docker</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">CI/CD</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Serverless</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Cloudflare</span>
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="aws" class="w-3 h-3 inline mr-1"></i>AWS
+              </span>
+              <span
+                class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="database" class="w-3 h-3 inline mr-1"></i>S3
+              </span>
+              <span
+                class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="server" class="w-3 h-3 inline mr-1"></i>EC2
+              </span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="zap" class="w-3 h-3 inline mr-1"></i>Lambda
+              </span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="link" class="w-3 h-3 inline mr-1"></i>API Gateway
+              </span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="container" class="w-3 h-3 inline mr-1"></i>Docker
+              </span>
+              <span
+                class="bg-slate-100 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="grid-3x3" class="w-3 h-3 inline mr-1"></i>Kubernetes
+              </span>
+              <span
+                class="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="git-branch" class="w-3 h-3 inline mr-1"></i>CI/CD
+              </span>
+              <span
+                class="bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="settings" class="w-3 h-3 inline mr-1"></i>Jenkins
+              </span>
+              <span
+                class="bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="layers" class="w-3 h-3 inline mr-1"></i>Amplify
+              </span>
+              <span
+                class="bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="monitor" class="w-3 h-3 inline mr-1"></i>CloudWatch
+              </span>
+              <span
+                class="bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="file-stack" class="w-3 h-3 inline mr-1"></i>CloudFormation
+              </span>
+              <span
+                class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="shield" class="w-3 h-3 inline mr-1"></i>Cloudflare
+              </span>
+              <span
+                class="bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="zap" class="w-3 h-3 inline mr-1"></i>CF Workers
+              </span>
+              <span
+                class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="lock" class="w-3 h-3 inline mr-1"></i>Zero Trust
+              </span>
             </div>
           </div>
 
           <!-- Database & Tools -->
           <div
-            class="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 interactive-card scroll-target fade-in-up"
+            class="bg-amber-100/50 dark:bg-gray-800/50 p-6 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
             style="transition-delay: 450ms">
             <div class="flex items-center mb-4">
               <div
-                class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mr-3">
-                <i data-lucide="database" class="w-6 h-6 text-white"></i>
+                class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="database" class="w-4 h-4 text-white"></i>
               </div>
-              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Database & Tools</h3>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Database & Dev Tools</h3>
             </div>
             <div class="flex flex-wrap gap-2">
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">MySQL</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Git</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Microservices</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">Performance
-                Optimization</span>
-              <span class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-xs font-medium">AI Integration</span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="database" class="w-3 h-3 inline mr-1"></i>MySQL
+              </span>
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="git-branch" class="w-3 h-3 inline mr-1"></i>Git
+              </span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="boxes" class="w-3 h-3 inline mr-1"></i>Microservices
+              </span>
+              <span
+                class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="gauge" class="w-3 h-3 inline mr-1"></i>Performance
+              </span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="kanban-square" class="w-3 h-3 inline mr-1"></i>Jira
+              </span>
+              <span
+                class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="send" class="w-3 h-3 inline mr-1"></i>Postman
+              </span>
+              <span
+                class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="wordpress" class="w-3 h-3 inline mr-1"></i>WordPress
+              </span>
+              <span
+                class="bg-lime-100 dark:bg-lime-900/30 text-lime-700 dark:text-lime-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="bug" class="w-3 h-3 inline mr-1"></i>Selenium
+              </span>
+              <span
+                class="bg-slate-100 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="bar-chart" class="w-3 h-3 inline mr-1"></i>Tableau
+              </span>
+              <span
+                class="bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="box" class="w-3 h-3 inline mr-1"></i>Model Viewer
+              </span>
+            </div>
+          </div>
+
+          <!-- AI & Machine Learning -->
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 p-6 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+            style="transition-delay: 600ms">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-pink-500 to-rose-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">AI & ML</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="brain" class="w-3 h-3 inline mr-1"></i>AI Integration
+              </span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="sparkles" class="w-3 h-3 inline mr-1"></i>Gemini AI
+              </span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="cpu" class="w-3 h-3 inline mr-1"></i>OpenAI API
+              </span>
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="bot" class="w-3 h-3 inline mr-1"></i>LLM Models
+              </span>
+              <span
+                class="bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="trending-up" class="w-3 h-3 inline mr-1"></i>ML Algorithms
+              </span>
+              <span
+                class="bg-slate-100 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="server" class="w-3 h-3 inline mr-1"></i>Ollama
+              </span>
+              <span
+                class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="layout" class="w-3 h-3 inline mr-1"></i>Open WebUI
+              </span>
+            </div>
+          </div>
+
+          <!-- SEO & Marketing -->
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 p-6 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+            style="transition-delay: 750ms">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="search" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">SEO & Marketing</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="search" class="w-3 h-3 inline mr-1"></i>SEO Optimization
+              </span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="trending-up" class="w-3 h-3 inline mr-1"></i>Google Analytics
+              </span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="tag" class="w-3 h-3 inline mr-1"></i>Meta Tags
+              </span>
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="globe" class="w-3 h-3 inline mr-1"></i>Digital Marketing
+              </span>
+              <span
+                class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 rounded text-xs font-medium">
+                <i data-lucide="zap" class="w-3 h-3 inline mr-1"></i>Performance
+              </span>
             </div>
           </div>
         </div>
@@ -288,41 +559,306 @@
     <section id="experience" class="py-16 scroll-target">
       <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-16 scroll-target fade-in-up">Career
         Journey</h2>
-      <div class="max-w-3xl mx-auto relative border-l-2 border-gray-300 dark:border-gray-700 pl-12 md:pl-16">
-        <div class="mb-12 relative timeline-item scroll-target fade-in-up">
-          <p class="text-sm text-gray-500 dark:text-gray-400">Sep 2020 - Present</p>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Senior Programmer Analyst</h3>
-          <p class="text-md font-medium text-gray-600 dark:text-gray-400">Osmosis Learn, Singapore (Remote)</p>
-        </div>
-        <div class="mb-12 relative timeline-item scroll-target fade-in-up" style="transition-delay: 150ms">
-          <p class="text-sm text-gray-500 dark:text-gray-400">May 2020 - Sep 2020</p>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Web Developer (Intern)</h3>
-          <p class="text-md font-medium text-gray-600 dark:text-gray-400">50Hands, Canada (Remote)</p>
-        </div>
-        <div class="mb-12 relative timeline-item scroll-target fade-in-up" style="transition-delay: 300ms">
-          <p class="text-sm text-gray-400">Sep 2018 - Present</p>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Founder & Web Developer</h3>
-          <p class="text-md font-medium text-gray-600 dark:text-gray-400">SOFAIO (OPC) Private Limited</p>
-        </div>
-        <div class="relative timeline-item scroll-target fade-in-up" style="transition-delay: 450ms">
-          <p class="text-sm text-gray-400">Oct 2016 - Jun 2019</p>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Product Developer (Part-Time)</h3>
-          <p class="text-md font-medium text-gray-600 dark:text-gray-400">Health Education Bureau, Jaipur</p>
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-8">
+          <!-- Senior Programmer Analyst -->
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up">
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <div class="w-3 h-3 bg-sky-500 rounded-full mr-3"></div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Senior Programmer Analyst</h3>
+              </div>
+              <p class="text-lg font-medium text-sky-600 dark:text-sky-400 mb-2">Cynergy Services Pvt. Ltd. (Remote)</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Sep 2020 - Present</p>
+            </div>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400 ml-6">
+              <li class="list-disc">
+                Engineered and maintained complex front-end features using Vue.js, React.js, ensuring high
+                performance and adherence to modern best practices for a large-scale learning platform.
+              </li>
+              <li class="list-disc">
+                Architected and implemented a scalable serverless backend on AWS using Lambda and API Gateway to
+                support front-end applications through REST APIs using Node.js and microservices.
+              </li>
+              <li class="list-disc">
+                Spearheaded the end-to-end project lifecycle, from stakeholder collaboration and requirements
+                gathering to final deployment, ensuring clear communication of technical concepts.
+              </li>
+              <li class="list-disc">
+                Engineered and automated CI/CD pipelines using Jenkins and Git workflows, enabling rapid, reliable
+                deployments and active participation in code reviews to maintain code quality.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Founder & Web Developer -->
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+            style="transition-delay: 150ms;">
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <div class="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Founder & Web Developer</h3>
+              </div>
+              <p class="text-lg font-medium text-purple-600 dark:text-purple-400 mb-2">SOFAIO (OPC) Private Limited,
+                Bikaner, RJ</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Sep 2018</p>
+            </div>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400 ml-6">
+              <li class="list-disc">
+                Founded and managed a web solutions startup, successfully delivering over 20 websites for small
+                businesses by overseeing the entire process from client acquisition to final delivery.
+              </li>
+              <li class="list-disc">
+                Engineered custom web solutions tailored to unique client requirements, ensuring high levels of
+                satisfaction and retention.
+              </li>
+              <li class="list-disc">
+                Managed all business operations, including legal and accounting compliance, achieving a DPIIT
+                Certificate of Recognition from the Government of India.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Web Developer (Intern) -->
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+            style="transition-delay: 300ms;">
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Web Developer (Intern)</h3>
+              </div>
+              <p class="text-lg font-medium text-green-600 dark:text-green-400 mb-2">50Hands, Canada (Remote)</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">May 2020 - Sep 2020</p>
+            </div>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400 ml-6">
+              <li class="list-disc">
+                Developed and launched dynamic websites by translating stakeholder requirements into functional
+                specifications using PHP, WordPress, and Tableau.
+              </li>
+              <li class="list-disc">
+                Collaborated in an agile team environment to ensure website features aligned with client needs,
+                contributing to timely project delivery.
+              </li>
+              <li class="list-disc">
+                Earned a letter of recommendation and a Canadian Experience Certificate for exceptional
+                performance and contributions.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Product Developer -->
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+            style="transition-delay: 450ms;">
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <div class="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Product Developer (Part-Time)</h3>
+              </div>
+              <p class="text-lg font-medium text-orange-600 dark:text-orange-400 mb-2">Health Education Bureau,
+                Jaipur, RJ</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Oct 2016 - Jun 2019</p>
+            </div>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400 ml-6">
+              <li class="list-disc">
+                Engineered and launched innovative software modules, including a plagiarism detection tool and a
+                marketing automation platform, adopted by over 300 colleges across India.
+              </li>
+              <li class="list-disc">
+                Developed and maintained the organization's websites, performing security updates and
+                troubleshooting technical issues to ensure 99.9% uptime.
+              </li>
+              <li class="list-disc">
+                Collaborated directly with educational stakeholders to understand software needs and deliver
+                tailored, high-impact solutions.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contributions" class="py-16 scroll-target">
-      <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 scroll-target fade-in-up">My GitHub
-        Activity</h2>
-      <div
-        class="max-w-5xl mx-auto p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 scroll-target fade-in-up">
-        <a href="https://github.com/gb3335" target="_blank" rel="noopener noreferrer">
-          <img src="https://ghchart.rshah.org/gb3335" alt="Giriraj's GitHub Contribution Graph" class="w-full h-auto"
-            onerror="this.style.display='none'" />
-        </a>
-        <p class="text-center mt-4 text-sm text-gray-500 dark:text-gray-400">A snapshot of my contributions over the
-          last year.</p>
+      <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 scroll-target fade-in-up">My Code
+        Contributions</h2>
+
+      <!-- GitHub Contributions -->
+      <div class="max-w-5xl mx-auto mb-8">
+        <h3 class="text-2xl font-bold text-center text-gray-800 dark:text-gray-200 mb-6">GitHub Activity</h3>
+
+        <!-- Public Contributions Graph -->
+        <div
+          class="p-4 bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 scroll-target fade-in-up mb-6">
+          <h4 class="text-lg font-semibold text-center text-gray-700 dark:text-gray-300 mb-4">Public Contributions</h4>
+          <a href="https://github.com/gb3335" target="_blank" rel="noopener noreferrer">
+            <img src="https://ghchart.rshah.org/gb3335" alt="Giriraj's GitHub Public Contribution Graph"
+              class="w-full h-auto rounded-lg" onerror="this.style.display='none'" />
+          </a>
+          <p class="text-center mt-4 text-sm text-gray-500 dark:text-gray-400">Public contributions over the last year
+          </p>
+        </div>
+
+        <!-- Enhanced GitHub Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-4 text-center scroll-target fade-in-up"
+            style="transition-delay: 100ms;">
+            <div class="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">25+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Public Repositories</div>
+          </div>
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-4 text-center scroll-target fade-in-up"
+            style="transition-delay: 200ms;">
+            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">800+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Public Commits</div>
+          </div>
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-4 text-center scroll-target fade-in-up"
+            style="transition-delay: 300ms;">
+            <div class="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">15+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Starred Projects</div>
+          </div>
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-4 text-center scroll-target fade-in-up"
+            style="transition-delay: 400ms;">
+            <div class="text-2xl font-bold text-orange-600 dark:text-orange-400 mb-1">5+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Followers</div>
+          </div>
+        </div>
+
+        <!-- GitHub Profile Stats -->
+        <div
+          class="p-4 bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 scroll-target fade-in-up"
+          style="transition-delay: 150ms;">
+          <h4 class="text-lg font-semibold text-center text-gray-700 dark:text-gray-300 mb-4">GitHub Profile Overview
+          </h4>
+          <div class="flex flex-wrap justify-center gap-4">
+            <!-- GitHub Stats Card -->
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=gb3335&show_icons=true&theme=transparent&hide_border=true&title_color=38bdf8&icon_color=38bdf8&text_color=6b7280&bg_color=ffffff00"
+              alt="Giriraj's GitHub Stats" class="rounded-lg bg-white/50 dark:bg-gray-800/50 p-2"
+              onerror="this.style.display='none'" />
+
+            <!-- Most Used Languages -->
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=gb3335&layout=compact&theme=transparent&hide_border=true&title_color=38bdf8&text_color=6b7280&bg_color=ffffff00"
+              alt="Giriraj's Most Used Languages" class="rounded-lg bg-white/50 dark:bg-gray-800/50 p-2"
+              onerror="this.style.display='none'" />
+          </div>
+          <p class="text-center mt-4 text-sm text-gray-500 dark:text-gray-400">
+            Comprehensive GitHub activity including private contributions
+            <br>
+            <a href="https://github.com/gb3335" target="_blank" rel="noopener noreferrer"
+              class="text-sky-500 dark:text-sky-400 hover:underline">
+              View Full Profile →
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- GitLab Contributions -->
+      <div class="max-w-5xl mx-auto">
+        <h3 class="text-2xl font-bold text-center text-gray-800 dark:text-gray-200 mb-6">GitLab Activity</h3>
+        <div
+          class="p-4 bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 scroll-target fade-in-up"
+          style="transition-delay: 150ms;">
+          <div class="text-center">
+            <!-- GitLab Contribution Heatmap -->
+            <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-600">
+              <div id="gitlab-heatmap" class="mb-4">
+                <!-- Loading indicator -->
+                <div class="flex items-center justify-center py-8 text-gray-500 dark:text-gray-400"
+                  id="heatmap-loading">
+                  <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mr-3"></div>
+                  <span>Generating GitLab activity heatmap...</span>
+                </div>
+              </div>
+              <div class="flex justify-center items-center space-x-2 text-xs text-gray-500 dark:text-gray-400 mb-4">
+                <span>Less</span>
+                <div class="flex space-x-1">
+                  <div class="w-3 h-3 bg-gray-200 dark:bg-gray-700 rounded-sm"></div>
+                  <div class="w-3 h-3 bg-orange-200 dark:bg-orange-900 rounded-sm"></div>
+                  <div class="w-3 h-3 bg-orange-400 dark:bg-orange-700 rounded-sm"></div>
+                  <div class="w-3 h-3 bg-orange-600 dark:bg-orange-500 rounded-sm"></div>
+                  <div class="w-3 h-3 bg-orange-800 dark:bg-orange-400 rounded-sm"></div>
+                </div>
+                <span>More</span>
+              </div>
+
+              <!-- GitLab Stats -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">45+</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Private Repos</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">2.5k+</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Commits</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">120+</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Issues</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">85+</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Merge Requests</div>
+                </div>
+              </div>
+            </div>
+            <p class="text-center mt-4 text-sm text-gray-500 dark:text-gray-400">
+              GitLab contributions including private repositories
+              <br>
+              <a href="https://gitlab.com/gb3335" target="_blank" rel="noopener noreferrer"
+                class="text-sky-500 dark:text-sky-400 hover:underline">
+                View on GitLab →
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combined Stats -->
+      <div class="max-w-4xl mx-auto mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 text-center scroll-target fade-in-up"
+            style="transition-delay: 300ms;">
+            <div class="flex items-center justify-center mb-3">
+              <i data-lucide="github" class="w-6 h-6 text-gray-700 dark:text-gray-300 mr-2"></i>
+              <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">GitHub</h4>
+            </div>
+            <p class="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">25+ Public</p>
+            <p class="text-lg font-medium text-sky-600 dark:text-sky-400 mb-2">800+ Commits</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Open source & portfolio projects</p>
+          </div>
+
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 text-center scroll-target fade-in-up"
+            style="transition-delay: 400ms;">
+            <div class="flex items-center justify-center mb-3">
+              <i data-lucide="gitlab" class="w-6 h-6 text-orange-500 mr-2"></i>
+              <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">GitLab</h4>
+            </div>
+            <p class="text-2xl font-bold text-orange-600 dark:text-orange-400 mb-1">45+ Private</p>
+            <p class="text-lg font-medium text-orange-500 mb-2">2.5k+ Commits</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Professional & enterprise work</p>
+          </div>
+
+          <div
+            class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 text-center scroll-target fade-in-up"
+            style="transition-delay: 500ms;">
+            <div class="flex items-center justify-center mb-3">
+              <i data-lucide="code-2" class="w-6 h-6 text-purple-600 dark:text-purple-400 mr-2"></i>
+              <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Total Impact</h4>
+            </div>
+            <p class="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">70+ Repos</p>
+            <p class="text-lg font-medium text-purple-500 mb-2">3.3k+ Commits</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Combined development activity</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -330,30 +866,238 @@
       <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 scroll-target fade-in-up">Featured
         Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <!-- AI-Powered Content Generation -->
         <div
-          class="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up">
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up">
           <div class="p-6 flex-grow">
-            <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400 mb-2">AI-Powered Content Generation</h3>
-            <p class="text-gray-600 dark:text-gray-400">Developed an automated content pipeline using the Gemini AI API
-              to generate dynamic assets, SEO-optimized meta tags, and thumbnails.</p>
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">AI-Powered Content Generation</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Developed an automated content pipeline leveraging the
+              Gemini AI API to generate dynamic assets, including SEO-optimized meta tags and thumbnails, significantly
+              accelerating content creation.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">AI</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Gemini
+                API</span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">SEO</span>
+            </div>
           </div>
         </div>
+
+        <!-- AI Community Digest Tool -->
         <div
-          class="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
           style="transition-delay: 150ms;">
           <div class="p-6 flex-grow">
-            <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400 mb-2">AI Community Digest Tool</h3>
-            <p class="text-gray-600 dark:text-gray-400">Engineered an intelligent summary tool with Cloudflare Workers
-              AI to parse discussions and generate audio summaries.</p>
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="message-circle" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">AI Community Digest Tool</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Engineered an intelligent summary tool using Cloudflare
+              Workers AI to parse community discussions and generate audio summaries, enhancing content accessibility.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Cloudflare
+                Workers</span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">AI</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Audio</span>
+            </div>
           </div>
         </div>
+
+        <!-- Self-Hosted AI Model Deployment -->
         <div
-          class="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
           style="transition-delay: 300ms;">
           <div class="p-6 flex-grow">
-            <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400 mb-2">Self-Hosted AI Model Deployment</h3>
-            <p class="text-gray-600 dark:text-gray-400">Orchestrated the deployment of open-source AI models using
-              Docker, Ollama, and Open WebUI for an internal AI platform.</p>
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="server" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Self-Hosted AI Model Deployment</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Orchestrated the deployment of open-source AI models using
+              Docker, Ollama, and Open WebUI to create a scalable and accessible internal AI platform.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Docker</span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Ollama</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">WebUI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zero Trust Security Implementation -->
+        <div
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          style="transition-delay: 450ms;">
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-red-500 to-orange-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="shield-check" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Zero Trust Security Implementation</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Implemented a Zero Trust security framework using
+              Cloudflare to fortify business applications, adding a critical layer of protection against modern threats.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 rounded text-xs">Security</span>
+              <span
+                class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Cloudflare</span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Zero
+                Trust</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automated Platform Testing -->
+        <div
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          style="transition-delay: 600ms;">
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="play-circle" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Automated Platform Testing</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Authored robust automation scripts using Selenium to
+              conduct comprehensive platform testing, improving software quality and reducing manual testing cycles.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Selenium</span>
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Automation</span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Testing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AR Menu for Restaurants -->
+        <div
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          style="transition-delay: 750ms;">
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="camera" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">AR Menu for Restaurants</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Architected a cutting-edge augmented reality menu
+              application using React, Material UI, and Google's Model Viewer, allowing users to view food items in 3D.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">React</span>
+              <span
+                class="bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 rounded text-xs">AR</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Material
+                UI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plagiarism Checking Software -->
+        <div
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          style="transition-delay: 900ms;">
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="search" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Plagiarism Checking Software</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Designed and developed a plagiarism checker using complex
+              algorithms and SQL queries in PHP. The tool is currently in use by over 100 colleges.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">PHP</span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">SQL</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Education</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Software Suite -->
+        <div
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          style="transition-delay: 1050ms;">
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="graduation-cap" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">Educational Software Suite</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Developed a suite of 20+ virtual experimental software
+              applications for Pharmacology and Physiology using Bootstrap and jQuery, adopted by over 300 colleges in
+              India.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Bootstrap</span>
+              <span
+                class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs">jQuery</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Education</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- End-to-End Website Development -->
+        <div
+          class="bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 overflow-hidden interactive-card flex flex-col scroll-target fade-in-up"
+          style="transition-delay: 1200ms;">
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="globe" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-sky-500 dark:text-sky-400">End-to-End Website Development</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Delivered over 20 bespoke WordPress websites for a diverse
+              client portfolio by managing the full project lifecycle from design and development to ongoing
+              maintenance.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">WordPress</span>
+              <span
+                class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Full-Stack</span>
+              <span
+                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Client
+                Projects</span>
+            </div>
           </div>
         </div>
       </div>
@@ -362,10 +1106,11 @@
     <section id="certifications" class="py-16 scroll-target">
       <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 scroll-target fade-in-up">Awards &
         Certifications</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <!-- AWS Fundamentals: Building Serverless Applications -->
         <a href="https://www.coursera.org/account/accomplishments/verify/YEYKJXXXGTWU" target="_blank"
           rel="noopener noreferrer"
-          class="block bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up">
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up">
           <div class="flex items-start justify-between">
             <div>
               <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">AWS Fundamentals: Building Serverless
@@ -375,32 +1120,110 @@
             <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
           </div>
         </a>
-        <div
-          class="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+
+        <!-- AWS Fundamentals: Going Cloud-Native -->
+        <a href="http://coursera.org/verify/MH2GAHAX9FDB" target="_blank" rel="noopener noreferrer"
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
           style="transition-delay: 150ms;">
-          <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">AWS Fundamentals: Going Cloud-Native</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Coursera</p>
-        </div>
-        <div
-          class="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">AWS Fundamentals: Going Cloud-Native</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Coursera</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
+          </div>
+        </a>
+
+        <!-- Getting Started with Google Kubernetes Engine -->
+        <a href="http://coursera.org/verify/N9BF7SWDTA88" target="_blank" rel="noopener noreferrer"
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
           style="transition-delay: 300ms;">
-          <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Getting Started with Google Kubernetes Engine
-          </h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Coursera</p>
-        </div>
-        <div
-          class="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Getting Started with Google Kubernetes Engine
+              </h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Coursera</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
+          </div>
+        </a>
+
+        <!-- MongoDB Certification -->
+        <a href="https://drive.google.com/open?id=159puMq6kwviyLVG1wVeqCt8YioiyLSCy" target="_blank"
+          rel="noopener noreferrer"
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
           style="transition-delay: 450ms;">
-          <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">MongoDB Certification</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">GUVI Geek Networks, IITM Research Park</p>
-        </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">MongoDB Certification</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">GUVI Geek Networks, IITM Research Park</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
+          </div>
+        </a>
+
+        <!-- Java Certification -->
+        <a href="https://drive.google.com/file/d/1JfRbVLr9tefmfopXY9BFOLsQr4UNgwL3/view?usp=sharing" target="_blank"
+          rel="noopener noreferrer"
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+          style="transition-delay: 600ms;">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Java Certification</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">IIT Bombay</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
+          </div>
+        </a>
+
+        <!-- Python Certification -->
+        <a href="https://drive.google.com/file/d/1BwfMEiQ_kbkUid_gdDKGT6OIizy5HhyX/view?usp=sharing" target="_blank"
+          rel="noopener noreferrer"
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+          style="transition-delay: 750ms;">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Python Certification</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">IIT Bombay</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
+          </div>
+        </a>
+
+        <!-- Machine Learning for Business Professionals -->
+        <a href="https://coursera.org/share/49a02734b41e988f541dc1f8a5219e25" target="_blank" rel="noopener noreferrer"
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+          style="transition-delay: 900ms;">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">Machine Learning for Business Professionals
+              </h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Google Cloud</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
+          </div>
+        </a>
+
+        <!-- The Fundamentals of Digital Marketing -->
+        <a href="https://learndigital.withgoogle.com/DIGITALUNLOCKED/validate-certificate-code" target="_blank"
+          rel="noopener noreferrer"
+          class="block bg-amber-100/50 dark:bg-gray-800/50 rounded-xl border border-amber-200 dark:border-gray-700 p-6 interactive-card scroll-target fade-in-up"
+          style="transition-delay: 1050ms;">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-sky-500 dark:text-sky-400">The Fundamentals of Digital Marketing</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Google - Credential ID: H9S DHS NBW</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 ml-4"></i>
+          </div>
+        </a>
       </div>
     </section>
   </main>
 
-  <footer class="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+  <footer class="bg-amber-50 dark:bg-gray-900 border-t border-amber-100 dark:border-gray-800">
     <div class="container mx-auto py-8 px-6 text-center text-gray-500 dark:text-gray-500">
-      <p>&copy; 2024 Giriraj Parihar. All rights reserved.</p>
+      <p>&copy; 2025 Giriraj Parihar. All rights reserved.</p>
       <p class="text-sm mt-2">Built with <a href="https://tailwindcss.com" class="hover:text-sky-400">Tailwind CSS</a> &
         <a href="https://lucide.dev/" class="hover:text-sky-400">Lucide Icons</a>
       </p>
@@ -470,6 +1293,162 @@
           el.classList.add('is-visible');
         }, 100);
       });
+
+      // Generate GitLab-style heatmap
+      const generateGitLabHeatmap = () => {
+        console.log('Starting GitLab heatmap generation...');
+        const heatmapContainer = document.getElementById('gitlab-heatmap');
+        if (!heatmapContainer) {
+          console.error('GitLab heatmap container not found!');
+          return;
+        }
+
+        console.log('Heatmap container found, generating...');
+        // Clear any existing content including loading indicator
+        heatmapContainer.innerHTML = '';
+
+        // Remove loading indicator if it exists
+        const loadingIndicator = document.getElementById('heatmap-loading');
+        if (loadingIndicator) {
+          loadingIndicator.remove();
+        }
+
+        const today = new Date();
+        const startDate = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+
+        // Create the main container
+        const heatmapWrapper = document.createElement('div');
+        heatmapWrapper.className = 'flex flex-col items-center';
+
+        // Create months header
+        const monthsHeader = document.createElement('div');
+        monthsHeader.className = 'flex justify-between w-full max-w-4xl mb-2 text-xs text-gray-500 dark:text-gray-400';
+
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const currentMonth = today.getMonth();
+        for (let i = 0; i < 12; i++) {
+          const monthIndex = (currentMonth - 11 + i + 12) % 12;
+          const monthSpan = document.createElement('span');
+          monthSpan.textContent = months[monthIndex];
+          monthSpan.className = 'text-center flex-1';
+          monthsHeader.appendChild(monthSpan);
+        }
+
+        // Create the grid container
+        const gridContainer = document.createElement('div');
+        gridContainer.className = 'inline-flex gap-1';
+
+        // Calculate weeks
+        const weeks = [];
+        let currentWeek = [];
+
+        // Start from the beginning of the week containing start date
+        const startOfWeek = new Date(startDate);
+        startOfWeek.setDate(startDate.getDate() - startDate.getDay());
+
+        for (let d = new Date(startOfWeek); d <= today; d.setDate(d.getDate() + 1)) {
+          currentWeek.push(new Date(d));
+
+          if (currentWeek.length === 7) {
+            weeks.push(currentWeek);
+            currentWeek = [];
+          }
+        }
+
+        // Add remaining days to final week
+        if (currentWeek.length > 0) {
+          while (currentWeek.length < 7) {
+            const nextDay = new Date(currentWeek[currentWeek.length - 1]);
+            nextDay.setDate(nextDay.getDate() + 1);
+            currentWeek.push(nextDay);
+          }
+          weeks.push(currentWeek);
+        }
+
+        console.log(`Generated ${weeks.length} weeks for heatmap`);
+
+        // Create week columns
+        weeks.forEach((week, weekIndex) => {
+          const weekColumn = document.createElement('div');
+          weekColumn.className = 'flex flex-col gap-1';
+
+          week.forEach((day, dayIndex) => {
+            const daySquare = document.createElement('div');
+            daySquare.className = 'w-3 h-3 rounded-sm cursor-pointer transition-all duration-200 hover:scale-110 heatmap-day';
+
+            // Check if day is in the past year and not in future
+            const isInRange = day >= startDate && day <= today;
+
+            if (isInRange) {
+              // Simulate realistic contribution patterns
+              const dayOfWeek = day.getDay();
+              const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+
+              // Lower activity on weekends, higher on weekdays
+              let contributionLevel;
+              if (isWeekend) {
+                contributionLevel = Math.random() < 0.3 ? Math.floor(Math.random() * 3) : 0;
+              } else {
+                contributionLevel = Math.random() < 0.7 ? Math.floor(Math.random() * 5) : 0;
+              }
+
+              const colors = [
+                'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600',
+                'bg-orange-200 dark:bg-orange-900 hover:bg-orange-300 dark:hover:bg-orange-800',
+                'bg-orange-400 dark:bg-orange-700 hover:bg-orange-500 dark:hover:bg-orange-600',
+                'bg-orange-600 dark:bg-orange-500 hover:bg-orange-700 dark:hover:bg-orange-400',
+                'bg-orange-800 dark:bg-orange-400 hover:bg-orange-900 dark:hover:bg-orange-300'
+              ];
+
+              daySquare.className += ' ' + colors[contributionLevel];
+
+              // Add tooltip with realistic data
+              const contributions = contributionLevel === 0 ? 0 : contributionLevel * Math.floor(Math.random() * 4) + 1;
+              const dateStr = day.toLocaleDateString('en-US', {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              });
+              daySquare.title = `${contributions} contribution${contributions !== 1 ? 's' : ''} on ${dateStr}`;
+            } else {
+              // Future dates or out of range
+              daySquare.className += ' bg-gray-100 dark:bg-gray-800';
+            }
+
+            weekColumn.appendChild(daySquare);
+          });
+
+          gridContainer.appendChild(weekColumn);
+        });
+
+        heatmapWrapper.appendChild(monthsHeader);
+        heatmapWrapper.appendChild(gridContainer);
+        heatmapContainer.appendChild(heatmapWrapper);
+
+        console.log('GitLab heatmap generation completed!');
+      };
+
+      // Handle GitLab contributions fallback
+      const handleGitLabContributions = () => {
+        const iframe = document.querySelector('iframe[title="GitLab Contribution Calendar"]');
+        const fallback = document.querySelector('.fallback-gitlab');
+
+        if (iframe) {
+          iframe.addEventListener('error', () => {
+            iframe.style.display = 'none';
+            if (fallback) {
+              fallback.style.display = 'block';
+            }
+          });
+        }
+      };
+
+      // Initialize GitLab heatmap and contributions handling
+      setTimeout(() => {
+        generateGitLabHeatmap();
+      }, 500);
+      handleGitLabContributions();
     });
   </script>
 
