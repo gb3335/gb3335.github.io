@@ -217,7 +217,9 @@ code {
 .project-card,
 .article-card,
 .lens-card,
-.timeline article {
+.timeline article,
+.stat-card,
+.cert-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -272,6 +274,47 @@ code {
 .timeline {
   display: grid;
   gap: 14px;
+}
+
+.stat-grid,
+.cert-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stat-card,
+.cert-card {
+  padding: 20px;
+}
+
+.stat-card strong {
+  color: var(--accent-strong);
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-card span,
+.cert-card span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cert-card {
+  display: block;
+  text-decoration: none;
+}
+
+.cert-card strong {
+  display: block;
+  line-height: 1.35;
+  margin-top: 8px;
+}
+
+.cert-card:hover {
+  border-color: rgba(20, 108, 95, 0.45);
 }
 
 .timeline article {
@@ -345,7 +388,9 @@ code {
   }
 
   .project-grid,
-  .lens-grid {
+  .lens-grid,
+  .stat-grid,
+  .cert-grid {
     grid-template-columns: 1fr;
   }
 }

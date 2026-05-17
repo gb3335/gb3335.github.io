@@ -71,6 +71,21 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section className="section-grid compact">
+        <div>
+          <p className="eyebrow">Activity</p>
+          <h2>Code Footprint</h2>
+        </div>
+        <div className="stat-grid">
+          {site.stats.map((stat) => (
+            <article className="stat-card" key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section-grid">
         <div>
           <p className="eyebrow">Experience</p>
@@ -84,6 +99,25 @@ const HomePage = () => {
               <strong>{role.company}</strong>
               <p>{role.summary}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-grid">
+        <div>
+          <p className="eyebrow">Learning</p>
+          <h2>Certifications</h2>
+        </div>
+        <div className="cert-grid">
+          {site.certifications.map((cert) => (
+            <ExternalLink
+              className="cert-card"
+              href={cert.href}
+              key={cert.title}
+            >
+              <span>{cert.issuer}</span>
+              <strong>{cert.title}</strong>
+            </ExternalLink>
           ))}
         </div>
       </section>
